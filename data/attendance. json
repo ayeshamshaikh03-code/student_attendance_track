@@ -1,0 +1,94 @@
+{
+  "doctype": "DocType",
+  "name": "Student Attendance",
+  "module": "Student Attendance Tracker",
+  "custom": 0,
+  "editable_grid": 0,
+  "issingle": 0,
+  "istable": 0,
+  "is_submittable": 0,
+  "track_changes": 1,
+  "track_seen": 0,
+  "quick_entry": 0,
+  "allow_rename": 0,
+  "allow_rename_after_submit": 0,
+  "engine": "InnoDB",
+  "title_field": "student_name",
+  "show_name_in_global_search": 1,
+  "search_fields": "student_name,date,status",
+  "sort_field": "date",
+  "sort_order": "desc",
+  "field_order": [
+    "student_name",
+    "date",
+    "status",
+    "remarks"
+  ],
+  "fields": [
+    {
+      "fieldname": "student_name",
+      "label": "Student Name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "reqd": 1,
+      "unique": 0,
+      "bold": 0
+    },
+    {
+      "fieldname": "date",
+      "label": "Date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "reqd": 1
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Present\nAbsent\nLate",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "reqd": 1
+    },
+    {
+      "fieldname": "remarks",
+      "label": "Remarks",
+      "fieldtype": "Small Text",
+      "depends_on": "eval:doc.status===\"Absent\"",
+      "mandatory_depends_on": "eval:doc.status===\"Absent\"",
+      "in_list_view": 0,
+      "reqd": 0
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "permlevel": 0,
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "print": 1,
+      "email": 1,
+      "export": 1,
+      "share": 1
+    },
+    {
+      "role": "Teacher",
+      "permlevel": 0,
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "print": 1,
+      "email": 1,
+      "export": 0,
+      "share": 0
+    }
+  ],
+  "actions": [],
+  "links": [],
+  "states": []
+}
